@@ -1,6 +1,5 @@
 package de.phonebook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,26 +7,28 @@ public class CreateAccountTest extends TestBase {
 
     @Test
     public void registerPositiveTest() {
-        click(By.cssSelector("[href='/login']"));
+        clickOnLoginLink();
 
-        String email = "karyna" + System.currentTimeMillis() + "@gmail.com";
-
-        type(By.name("email"), email);
-        type(By.name("password"), "Aa12345!");
-        click(By.name("registration"));
-
-        Assert.assertTrue(
-                isElementPresent(By.xpath("//*[.='Sign Out']"))
+        fillLoginRegistrationForm(
+                newEmail(),
+                "Aa12345!"
         );
+
+        clickOnRegistrationButton();
+
+        Assert.assertTrue(isSignOutButtonPresent());
     }
 
     @Test
     public void registerExistingUserNegativeTest() {
-        click(By.cssSelector("[href='/login']"));
+        clickOnLoginLink();
 
-        type(By.name("email"), "karyna.autotest.20260729@gmail.com");
-        type(By.name("password"), "Aa12345!");
-        click(By.name("registration"));
+        fillLoginRegistrationForm(
+                "karyna.autotest.20260729@gmail.com",
+                "Aa12345!"
+        );
+
+        clickOnRegistrationButton();
 
         Assert.assertTrue(isAlertPresent());
     }
