@@ -1,6 +1,8 @@
 package de.phonebook.tests;
 
-import org.openqa.selenium.By;
+import de.phonebook.core.TestBase;
+import de.phonebook.model.Contact;
+import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,36 +12,44 @@ public class AddContactTest extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnLoginLink();
-        fillLoginRegistrationForm(
-                "karyna.autotest.20260729@gmail.com",
-                "Aa12345!"
-        );
-        clickOnLoginButton();
+        if (!app.getUser().isLoginLinkPresent()) {
+            app.getUser().clickOnSignOutButton();
+        }
+
+        app.getUser().clickOnLoginLink();
+
+        User user = new User()
+                .setEmail("karyna.autotest.20260729@gmail.com")
+                .setPassword("Aa12345!");
+
+        app.getUser().fillLoginRegistrationForm(user);
+        app.getUser().clickOnLoginButton();
     }
 
     @Test
     public void addContactPositiveTest() {
-        clickOnAddLink();
+        app.getContact().clickOnAddLink();
 
-        fillAddContactForm(
-                "Oliver",
-                "Kan",
-                "1234567890",
-                "oliver.kan@gmail.com",
-                "Berlin",
-                "QA contact"
+        Contact contact = new Contact()
+                .setName("Oliver")
+                .setLastName("Kan")
+                .setPhone("1234567890")
+                .setEmail("oliver.kan@gmail.com")
+                .setAddress("Berlin")
+                .setDescription("QA contact");
+
+        app.getContact().fillAddContactForm(contact);
+        app.getContact().clickOnSaveButton();
+
+        Assert.assertTrue(
+                app.getContact().verifyByName("Oliver")
         );
-
-        clickOnSaveButton();
-
-        Assert.assertTrue(verifyContactByName("Oliver"));
     }
 
     @AfterMethod
     public void postcondition() {
-        if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))) {
-            removeContact();
+        if (app.getContact().sizeOfContacts() > 0) {
+            app.getContact().removeContact();
         }
     }
 }

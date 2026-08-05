@@ -1,50 +1,51 @@
 package de.phonebook.tests;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
+import de.phonebook.core.TestBase;
+import de.phonebook.model.Contact;
+import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class RemoveContactTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnLoginLink();
+        if (!app.getUser().isLoginLinkPresent()) {
+            app.getUser().clickOnSignOutButton();
+        }
 
-        fillLoginRegistrationForm(
-                "karyna.autotest.20260729@gmail.com",
-                "Aa12345!"
-        );
+        app.getUser().clickOnLoginLink();
 
-        clickOnLoginButton();
-        clickOnAddLink();
+        User user = new User()
+                .setEmail("karyna.autotest.20260729@gmail.com")
+                .setPassword("Aa12345!");
 
-        fillAddContactForm(
-                "Oliver",
-                "Kan",
-                "1234567890",
-                "oliver.kan@gmail.com",
-                "Berlin",
-                "QA contact"
-        );
+        app.getUser().fillLoginRegistrationForm(user);
+        app.getUser().clickOnLoginButton();
 
-        clickOnSaveButton();
+        app.getContact().clickOnAddLink();
+
+        Contact contact = new Contact()
+                .setName("Oliver")
+                .setLastName("Kan")
+                .setPhone("1234567890")
+                .setEmail("oliver.kan@gmail.com")
+                .setAddress("Berlin")
+                .setDescription("QA contact");
+
+        app.getContact().fillAddContactForm(contact);
+        app.getContact().clickOnSaveButton();
     }
 
     @Test
     public void removeContactPositiveTest() {
-        int sizeBefore = sizeOfContacts();
+        int sizeBefore = app.getContact().sizeOfContacts();
 
-        removeContact();
+        app.getContact().removeContact();
+        app.getContact().pause(1000);
 
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(webDriver ->
-                        sizeOfContacts() == sizeBefore - 1
-                );
-
-        int sizeAfter = sizeOfContacts();
+        int sizeAfter = app.getContact().sizeOfContacts();
 
         Assert.assertEquals(sizeAfter, sizeBefore - 1);
     }
