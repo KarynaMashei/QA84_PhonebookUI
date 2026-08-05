@@ -43,7 +43,7 @@ public class RemoveContactTests extends TestBase {
         int sizeBefore = app.getContact().sizeOfContacts();
 
         app.getContact().removeContact();
-        app.getContact().pause(1000);
+        app.getContact().pause(3000);
 
         int sizeAfter = app.getContact().sizeOfContacts();
 
