@@ -29,3 +29,20 @@ task qa(type: Test) {
     inputs.property("browser", selectedBrowser)
     systemProperty "browser", selectedBrowser
 }
+def registerTask(String taskName, String suitePath) {
+    tasks.register(taskName, Test) {
+        testClassesDirs = sourceSets.test.output.classesDirs
+        classpath = sourceSets.test.runtimeClasspath
+
+        useTestNG() {
+            suites suitePath
+        }
+
+        def selectedBrowser = project.findProperty("browser") ?: "chrome"
+        inputs.property("browser", selectedBrowser)
+        systemProperty "browser", selectedBrowser
+    }
+}
+
+registerTask('quick', 'src/test/resources/quick.xml')
+registerTask('regr', 'src/test/resources/regression.xml')
