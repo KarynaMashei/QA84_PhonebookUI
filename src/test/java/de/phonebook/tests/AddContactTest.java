@@ -1,8 +1,10 @@
 package de.phonebook.tests;
 
 import de.phonebook.core.TestBase;
+import de.phonebook.data.UserData;
 import de.phonebook.model.Contact;
 import de.phonebook.model.User;
+import de.phonebook.utils.MyDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,30 +21,24 @@ public class AddContactTest extends TestBase {
         app.getUser().clickOnLoginLink();
 
         User user = new User()
-                .setEmail("karyna.autotest.20260729@gmail.com")
-                .setPassword("Aa12345!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
 
         app.getUser().fillLoginRegistrationForm(user);
         app.getUser().clickOnLoginButton();
     }
 
-    @Test
-    public void addContactPositiveTest() {
+    @Test(
+            dataProvider = "addNewContactFromCsv",
+            dataProviderClass = MyDataProviders.class
+    )
+    public void addContactPositiveTest(Contact contact) {
         app.getContact().clickOnAddLink();
-
-        Contact contact = new Contact()
-                .setName("Oliver")
-                .setLastName("Kan")
-                .setPhone("1234567890")
-                .setEmail("oliver.kan@gmail.com")
-                .setAddress("Berlin")
-                .setDescription("QA contact");
-
         app.getContact().fillAddContactForm(contact);
         app.getContact().clickOnSaveButton();
 
         Assert.assertTrue(
-                app.getContact().verifyByName("Oliver")
+                app.getContact().verifyByName(contact.getName())
         );
     }
 
