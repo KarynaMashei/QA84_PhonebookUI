@@ -6,6 +6,7 @@ import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import de.phonebook.data.UserData;
 
 public class RemoveContactTests extends TestBase {
 
@@ -18,8 +19,8 @@ public class RemoveContactTests extends TestBase {
         app.getUser().clickOnLoginLink();
 
         User user = new User()
-                .setEmail("karyna.autotest.20260729@gmail.com")
-                .setPassword("Aa12345!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
 
         app.getUser().fillLoginRegistrationForm(user);
         app.getUser().clickOnLoginButton();
@@ -42,8 +43,9 @@ public class RemoveContactTests extends TestBase {
     public void removeContactPositiveTest() {
         int sizeBefore = app.getContact().sizeOfContacts();
 
+
         app.getContact().removeContact();
-        app.getContact().pause(3000);
+        app.getContact().waitUntilContactsCountIsLessThan(sizeBefore);
 
         int sizeAfter = app.getContact().sizeOfContacts();
 

@@ -5,6 +5,7 @@ import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import de.phonebook.data.UserData;
 
 public class CreateAccountTest extends TestBase {
 
@@ -21,7 +22,7 @@ public class CreateAccountTest extends TestBase {
 
         User user = new User()
                 .setEmail(app.getUser().newEmail())
-                .setPassword("Aa12345!");
+                .setPassword(UserData.PASSWORD);
 
         app.getUser().fillLoginRegistrationForm(user);
         app.getUser().clickOnRegistrationButton();
@@ -36,8 +37,8 @@ public class CreateAccountTest extends TestBase {
         app.getUser().clickOnLoginLink();
 
         User user = new User()
-                .setEmail("karyna.autotest.20260729@gmail.com")
-                .setPassword("Aa12345!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
 
         app.getUser().fillLoginRegistrationForm(user);
         app.getUser().clickOnRegistrationButton();

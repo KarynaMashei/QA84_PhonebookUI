@@ -5,6 +5,9 @@ import de.phonebook.model.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 import java.util.List;
 
@@ -43,11 +46,30 @@ public class ContactHelper extends BaseHelper {
         return false;
     }
 
+    public boolean verifyByPhone(String phone) {
+        List<WebElement> contacts = driver.findElements(By.cssSelector(".contact-item_card__2SOIM"));
+
+        for (WebElement element : contacts) {
+            if (element.getText().contains(phone)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void removeContact() {
         click(By.cssSelector(".contact-item_card__2SOIM"));
         click(By.xpath("//button[.='Remove']"));
     }
 
+    public void waitUntilContactsCountIsLessThan(int previousCount) {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.numberOfElementsToBeLessThan(
+                        By.cssSelector(".contact-item_card__2SOIM"), previousCount
+                )
+        );
+    }
     public int sizeOfContacts() {
         if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))) {
             return driver.findElements(
