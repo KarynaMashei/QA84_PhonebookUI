@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.phonebook.tests.HomePageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-08-19T10:10:52.063Z" hostname="DESKTOP-FVEIJNG" time="0.335">
+  <properties/>
+  <testcase name="isHomeComponentPresentTest" classname="de.phonebook.tests.HomePageTest" time="0.01"/>
+  <system-out><![CDATA[12:10:52.064 [Test worker] INFO  de.phonebook.core.TestBase -- Start test isHomeComponentPresentTest with parameters []
+12:10:52.399 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: isHomeComponentPresentTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

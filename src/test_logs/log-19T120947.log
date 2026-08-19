@@ -1,0 +1,22 @@
+4868 [Test worker] INFO  i.g.bonigarcia.wdm.WebDriverManager -- Using chromedriver 151.0.7922.138 (resolved driver for Chrome 151)
+4900 [Test worker] INFO  i.g.bonigarcia.wdm.WebDriverManager -- Exporting webdriver.chrome.driver as C:\Users\karym\.cache\selenium\chromedriver\win64\151.0.7922.138\chromedriver.exe
+9302 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@4195105b]
+13896 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+13898 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@77681ce4]
+26885 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+26887 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@3bf54172]
+40396 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+40398 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@4ac8768e]
+53365 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+53369 [Test worker] INFO  de.phonebook.core.TestBase -- Start test registerExistingUserNegativeTest with parameters []
+64449 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: registerExistingUserNegativeTest
+64452 [Test worker] INFO  de.phonebook.core.TestBase -- Start test registerPositiveTest with parameters []
+65309 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: registerPositiveTest
+65311 [Test worker] INFO  de.phonebook.core.TestBase -- Start test isHomeComponentPresentTest with parameters []
+65646 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: isHomeComponentPresentTest
+65648 [Test worker] INFO  de.phonebook.core.TestBase -- Start test loginRegisteredUserPositiveTest with parameters []
+76933 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: loginRegisteredUserPositiveTest
+76935 [Test worker] INFO  de.phonebook.core.TestBase -- Start test loginWithoutEmailNegativeTest with parameters []
+88025 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: loginWithoutEmailNegativeTest
+88028 [Test worker] INFO  de.phonebook.core.TestBase -- Start test removeContactPositiveTest with parameters []
+93341 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: removeContactPositiveTest

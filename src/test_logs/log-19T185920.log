@@ -1,0 +1,19 @@
+1309 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\QA_Projects\QA84_PhonebookUI\src\test\resources\regression.xml
+
+2358 [main] INFO  i.g.bonigarcia.wdm.WebDriverManager -- Using chromedriver 151.0.7922.138 (resolved driver for Chrome 151)
+2393 [main] INFO  i.g.bonigarcia.wdm.WebDriverManager -- Exporting webdriver.chrome.driver as C:\Users\karym\.cache\selenium\chromedriver\win64\151.0.7922.138\chromedriver.exe
+5437 [main] INFO  de.phonebook.core.TestBase -- Start test isHomeComponentPresentTest with parameters []
+5501 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: isHomeComponentPresentTest
+5507 [main] INFO  de.phonebook.core.TestBase -- Start test loginRegisteredUserPositiveTest with parameters []
+7363 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: loginRegisteredUserPositiveTest
+7382 [main] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@37191ef0]
+21214 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+21218 [main] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@7903d448]
+33917 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+33919 [main] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@38830ea]
+46852 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+46855 [main] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@173f1614]
+59647 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+59650 [main] INFO  de.phonebook.core.TestBase -- Start test removeContactPositiveTest with parameters []
+73797 [main] INFO  de.phonebook.core.TestBase -- Test PASSED: removeContactPositiveTest

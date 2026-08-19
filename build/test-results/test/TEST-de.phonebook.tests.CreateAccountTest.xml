@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.phonebook.tests.CreateAccountTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-19T10:10:40.119Z" hostname="DESKTOP-FVEIJNG" time="11.942">
+  <properties/>
+  <testcase name="registerExistingUserNegativeTest" classname="de.phonebook.tests.CreateAccountTest" time="0.97"/>
+  <testcase name="registerPositiveTest" classname="de.phonebook.tests.CreateAccountTest" time="0.843"/>
+  <system-out><![CDATA[12:10:40.122 [Test worker] INFO  de.phonebook.core.TestBase -- Start test registerExistingUserNegativeTest with parameters []
+12:10:51.202 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: registerExistingUserNegativeTest
+12:10:51.205 [Test worker] INFO  de.phonebook.core.TestBase -- Start test registerPositiveTest with parameters []
+12:10:52.062 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: registerPositiveTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.phonebook.tests.AddContactTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-19T10:09:55.899Z" hostname="DESKTOP-FVEIJNG" time="44.051">
+  <properties/>
+  <testcase name="addContactPositiveTest[0](de.phonebook.model.Contact@4195105b)" classname="de.phonebook.tests.AddContactTest" time="2.573"/>
+  <testcase name="addContactPositiveTest[1](de.phonebook.model.Contact@77681ce4)" classname="de.phonebook.tests.AddContactTest" time="1.954"/>
+  <testcase name="addContactPositiveTest[2](de.phonebook.model.Contact@3bf54172)" classname="de.phonebook.tests.AddContactTest" time="1.985"/>
+  <testcase name="addContactPositiveTest[3](de.phonebook.model.Contact@4ac8768e)" classname="de.phonebook.tests.AddContactTest" time="2.17"/>
+  <system-out><![CDATA[12:09:56.055 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@4195105b]
+12:10:00.649 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+12:10:00.651 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@77681ce4]
+12:10:13.638 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+12:10:13.640 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@3bf54172]
+12:10:27.149 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+12:10:27.151 [Test worker] INFO  de.phonebook.core.TestBase -- Start test addContactPositiveTest with parameters [de.phonebook.model.Contact@4ac8768e]
+12:10:40.118 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: addContactPositiveTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
