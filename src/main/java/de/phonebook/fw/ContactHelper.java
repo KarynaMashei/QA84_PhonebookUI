@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-import java.util.List;
-
 public class ContactHelper extends BaseHelper {
 
     public ContactHelper(WebDriver driver) {
@@ -35,27 +33,22 @@ public class ContactHelper extends BaseHelper {
     }
 
     public boolean verifyByName(String text) {
-        List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
-
-        for (WebElement element : contacts) {
-            if (element.getText().contains(text)) {
-                return true;
-            }
-        }
-
-        return false;
+        return waitUntilAnyElementContainsText(By.cssSelector("h2"), text);
     }
 
     public boolean verifyByPhone(String phone) {
-        List<WebElement> contacts = driver.findElements(By.cssSelector(".contact-item_card__2SOIM"));
+        return waitUntilAnyElementContainsText(
+                By.cssSelector(".contact-item_card__2SOIM"),
+                phone
+        );
+    }
 
-        for (WebElement element : contacts) {
-            if (element.getText().contains(phone)) {
-                return true;
-            }
-        }
-
-        return false;
+    private boolean waitUntilAnyElementContainsText(By locator, String text) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                currentDriver -> currentDriver.findElements(locator).stream()
+                        .map(WebElement::getText)
+                        .anyMatch(value -> value.contains(text))
+        );
     }
 
     public void removeContact() {

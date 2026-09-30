@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.phonebook.tests.RemoveContactTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-08-19T10:11:14.779Z" hostname="DESKTOP-FVEIJNG" time="5.314">
-  <properties/>
-  <testcase name="removeContactPositiveTest" classname="de.phonebook.tests.RemoveContactTests" time="3.554"/>
-  <system-out><![CDATA[12:11:14.781 [Test worker] INFO  de.phonebook.core.TestBase -- Start test removeContactPositiveTest with parameters []
-12:11:20.094 [Test worker] INFO  de.phonebook.core.TestBase -- Test PASSED: removeContactPositiveTest
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

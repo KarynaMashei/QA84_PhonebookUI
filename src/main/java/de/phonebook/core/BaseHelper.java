@@ -4,7 +4,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,38 +25,35 @@ public class BaseHelper {
     }
 
     public boolean isElementPresent(By locator) {
-        return driver.findElements(locator).size() > 0;
+        return !driver.findElements(locator).isEmpty();
     }
 
     public void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
+        WebElement element = waitForVisibility(locator);
+        element.clear();
+        element.sendKeys(text);
     }
 
     public void click(By locator) {
-        driver.findElement(locator).click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(locator))
+                .click();
     }
 
     public boolean isAlertPresent() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.alertIsPresent());
-
-        if (alert == null) {
-            return false;
-        } else {
+        try {
+            Alert alert = new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.alertIsPresent());
             alert.accept();
             return true;
+        } catch (TimeoutException e) {
+            return false;
         }
     }
 
-    public void pause(int millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new RuntimeException(e);
-        }
+    protected WebElement waitForVisibility(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public String takeScreenshot() {
