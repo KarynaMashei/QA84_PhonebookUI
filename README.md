@@ -1,6 +1,6 @@
 # PhoneBook UI Test Automation
 
-Training project developed during the QA Automation Engineer program at AIT Technology School. It demonstrates cross-browser UI test automation for the [PhoneBook](https://telranedu.web.app/home) web application with Java, Selenium WebDriver, TestNG and the Page Object Model.
+Training project developed during the QA Automation Engineer program at AIT Technology School. It demonstrates cross-browser UI test automation for the [PhoneBook](https://telranedu.web.app/home) web application with Java, Selenium WebDriver, TestNG and a helper-based framework organized around `ApplicationManager` and feature helpers.
 
 ## Covered scenarios
 
@@ -20,12 +20,12 @@ Training project developed during the QA Automation Engineer program at AIT Tech
 - Gradle
 - WebDriverManager
 - SLF4J and Logback
-- Page Object Model
+- helper-based test framework (`ApplicationManager` with user, contact and home-page helpers)
 
 ## Project structure
 
 - `src/main/java/de/phonebook/core` — browser lifecycle and shared actions
-- `src/main/java/de/phonebook/fw` — page helpers
+- `src/main/java/de/phonebook/fw` — feature helpers for users, contacts and home-page interactions
 - `src/main/java/de/phonebook/model` — test-data models
 - `src/test/java/de/phonebook/tests` — TestNG test classes
 - `src/test/resources` — suites, CSV data and logging configuration
